@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PaccurateShipping</RootNamespace>
     <AssemblyName>PaccurateShipping</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,56 +32,71 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CMS.Base">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.Base.dll</HintPath>
+    <Reference Include="CMS.Base, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.Base.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.Base.Web.UI">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.Base.Web.UI.dll</HintPath>
+    <Reference Include="CMS.Base.Web.UI, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.Base.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.Core">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.Core.dll</HintPath>
+    <Reference Include="CMS.Core, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.Core.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.DataEngine">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.DataEngine.dll</HintPath>
+    <Reference Include="CMS.DataEngine, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.DataEngine.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.DocumentEngine">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.DocumentEngine.dll</HintPath>
+    <Reference Include="CMS.DocumentEngine, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.DocumentEngine.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.Ecommerce">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.Ecommerce.dll</HintPath>
+    <Reference Include="CMS.Ecommerce, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.Ecommerce.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.Ecommerce.Web.UI">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.Ecommerce.Web.UI.dll</HintPath>
+    <Reference Include="CMS.Ecommerce.Web.UI, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.Ecommerce.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.EventLog">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.EventLog.dll</HintPath>
+    <Reference Include="CMS.EventLog, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.EventLog.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.FormEngine.Web.UI">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.FormEngine.Web.UI.dll</HintPath>
+    <Reference Include="CMS.FormEngine.Web.UI, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.FormEngine.Web.UI.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.Helpers">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.Helpers.dll</HintPath>
+    <Reference Include="CMS.Helpers, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.ImportExport">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.ImportExport.dll</HintPath>
+    <Reference Include="CMS.ImportExport, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.ImportExport.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.Modules">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.Modules.dll</HintPath>
+    <Reference Include="CMS.Modules, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.Modules.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.SiteProvider">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.SiteProvider.dll</HintPath>
+    <Reference Include="CMS.SiteProvider, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.SiteProvider.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.Synchronization">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.Synchronization.dll</HintPath>
+    <Reference Include="CMS.Synchronization, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.Synchronization.dll</HintPath>
     </Reference>
-    <Reference Include="CMS.UIControls">
-      <HintPath>..\..\..\Kentico11\Lib\CMS.UIControls.dll</HintPath>
+    <Reference Include="CMS.UIControls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.UIControls.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Kentico11\packages\Newtonsoft.Json.6.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Kentico12_Portal\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Paccurate.SDK, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\Kentico11\packages\Paccurate.SDK.1.0.2\lib\net46\Paccurate.SDK.dll</HintPath>
+    <Reference Include="Paccurate.SDK, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\Kentico12_Portal\packages\Paccurate.SDK.2.0.2\lib\net461\Paccurate.SDK.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
