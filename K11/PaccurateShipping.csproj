@@ -64,6 +64,9 @@
     <Reference Include="CMS.ImportExport">
       <HintPath>..\..\..\Kentico11\Lib\CMS.ImportExport.dll</HintPath>
     </Reference>
+    <Reference Include="CMS.Membership">
+      <HintPath>..\..\..\Kentico11\Lib\CMS.Membership.dll</HintPath>
+    </Reference>
     <Reference Include="CMS.Modules">
       <HintPath>..\..\..\Kentico11\Lib\CMS.Modules.dll</HintPath>
     </Reference>

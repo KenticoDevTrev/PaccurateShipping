@@ -1,5 +1,4 @@
-﻿using CMS.Base;
-using CMS.DataEngine;
+﻿using CMS.DataEngine;
 using CMS.Ecommerce;
 using CMS.EventLog;
 using CMS.Helpers;
@@ -15,7 +14,6 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace PaccurateShipping
@@ -113,25 +111,25 @@ namespace PaccurateShipping
             try
             {
                 // Now send the request
-                string RequestMD5 = MD5.Create(Request.ToJson(false)).ToString();
+                string RequestMD5 = GetShippingHash();
                 var ResponseHandler = CacheHelper.Cache(x =>
                 {
                     if (x.Cached)
                     {
-                        x.CacheDependency = CacheHelper.GetCacheDependency(new string[] {
+                        x.CacheDependency = CacheHelper.GetCacheDependency(new string[3] {
                         "paccurateshipping.box|all",
                         "paccurateshipping.boxshippingoption|all",
                         "paccurateshipping.boxcolor|all"
                     });
                     }
                     return new PackRequestHandler(Request).GetResponse();
-                }, new CacheSettings(30, ECommerceContext.CurrentShoppingCart.ShoppingCartID, RequestMD5));
+                }, new CacheSettings(30.0, "PackResponseHandler1", RequestMD5));
 
                 ResponseErrored = ResponseHandler.ResponseErrored;
                 if (ResponseErrored)
                 {
                     ResponseError = ResponseHandler.ResponseError;
-                    EventLogProvider.LogEvent("W", "Paccurate Packaging", "RESPONSEERROR", eventDescription: $"Error {ResponseError.Code}: {ResponseError.Message}.  For Request {Request.ToString() }");
+                    EventLogProvider.LogEvent("W", "Paccurate Packaging", "RESPONSEERROR", eventDescription: $"Error {ResponseError.Code}: {ResponseError.Message}.  For Request {Request }");
                 }
                 else
                 {
@@ -171,25 +169,25 @@ namespace PaccurateShipping
                         else
                         {
                             // Re-run request now that everything is boxed up.
-                            string SecondRequestMD5 = MD5.Create(Request.ToJson(false)).ToString();
+                            string SecondRequestMD5 = GetShippingHash();
                             var SecondaryResponseHandler = CacheHelper.Cache(x =>
                             {
                                 if (x.Cached)
                                 {
-                                    x.CacheDependency = CacheHelper.GetCacheDependency(new string[] {
+                                    x.CacheDependency = CacheHelper.GetCacheDependency(new string[3] {
                                         "paccurateshipping.box|all",
                                         "paccurateshipping.boxshippingoption|all",
                                         "paccurateshipping.boxcolor|all",
                                     });
                                 }
                                 return new PackRequestHandler(Request).GetResponse();
-                            }, new CacheSettings(30, ECommerceContext.CurrentShoppingCart.ShoppingCartID, SecondRequestMD5));
+                            }, new CacheSettings(30.0, "PackResponseHandler2", SecondRequestMD5));
 
                             var SecondaryResponseErrored = ResponseHandler.ResponseErrored;
                             if (SecondaryResponseErrored)
                             {
                                 var SecondaryResponseError = SecondaryResponseHandler.ResponseError;
-                                EventLogProvider.LogEvent("W", "Paccurate Packaging", "SECONDRESPONSEERROR", eventDescription: $"Error {SecondaryResponseError.Code}: {SecondaryResponseError.Message}.  For Request secondary (preboxed leftovers) {Request.ToString() }");
+                                EventLogProvider.LogEvent("W", "Paccurate Packaging", "SECONDRESPONSEERROR", eventDescription: $"Error {SecondaryResponseError.Code}: {SecondaryResponseError.Message}.  For Request secondary (preboxed leftovers) {Request }");
                             }
                             else
                             {
@@ -547,6 +545,21 @@ namespace PaccurateShipping
             Request.IncludeScripts = SettingsKeyInfoProvider.GetBoolValue("PaccurateIncludeScripts", SiteIdentifier, false);
 
             return Request;
+        }
+
+
+        public string GetShippingHash()
+        {
+            using (var hash = MD5.Create())
+            {
+
+                var itemstr = DeliveryObj.Items.OrderBy(x => x.Product.SKUID).Select(x => $"{x.Product.SKUID}-{x.Amount}-({string.Join(")", x.CustomData.ColumnNames.OrderBy(c => c).Select(c => $"{c}:{x.CustomData.GetValue(c)}"))})");
+                var livString = $"{DeliveryObj.Weight}|{string.Join(",", itemstr)}";
+
+                var json = Request.ToJson(format: false);
+
+                return BitConverter.ToString(hash.ComputeHash(Encoding.UTF8.GetBytes($"{livString}|{json}")));
+            }
         }
 
 

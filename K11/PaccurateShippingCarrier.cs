@@ -5,7 +5,6 @@ using PaccurateShipping;
 using CMS;
 
 [assembly: RegisterCustomClass("PaccurateShippingCarrier", typeof(PaccurateShippingCarrier))]
-
 namespace PaccurateShipping
 {
     public class PaccurateShippingCarrier : ICarrierProvider
@@ -27,7 +26,7 @@ namespace PaccurateShipping
 
         public decimal GetPrice(Delivery delivery, string currencyCode)
         {
-            PaccurateDelivery PackDelivery = new PaccurateDelivery(delivery);           
+            PaccurateDelivery PackDelivery = new PaccurateDelivery(delivery);
             return CurrencyConverter.Convert(PackDelivery.Response.TotalCost ?? 0, CurrencyInfoProvider.GetMainCurrencyCode(delivery.ShippingOption.ShippingOptionSiteID), currencyCode, delivery.ShippingOption.ShippingOptionSiteID);
         }
 

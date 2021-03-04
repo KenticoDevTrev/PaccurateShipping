@@ -76,6 +76,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.ImportExport.dll</HintPath>
     </Reference>
+    <Reference Include="CMS.Membership">
+      <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.Membership.dll</HintPath>
+    </Reference>
     <Reference Include="CMS.Modules, Version=11.0.0.0, Culture=neutral, PublicKeyToken=834b12a258f213f9, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Kentico12_Portal\Lib\CMS.Modules.dll</HintPath>
